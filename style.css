@@ -6,6 +6,7 @@
 a{
     color: rgb(177, 177, 177);
     text-decoration: underline none;
+    z-index: 1; /* Ensure links are positioned above other elements */
 }
 .Sp {
 
