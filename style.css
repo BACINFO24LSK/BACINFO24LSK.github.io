@@ -3,9 +3,10 @@
     margin: 0;
 }
 
-a{
+a {
     color: rgb(177, 177, 177);
     text-decoration: underline none;
+    -webkit-tap-highlight-color: transparent; /* Ensure links are visually responsive to touch */
     z-index: 1; /* Ensure links are positioned above other elements */
 }
 .Sp {
