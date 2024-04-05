@@ -381,7 +381,7 @@ legend {
     font-style: italic;
     text-align: center;
     margin: 10px;
-    animation: scrolldown 4.5s ease-in-out infinite;
+    animation: scrolldown 6.5s ease-in-out infinite;
     opacity: 1;
 }
 
