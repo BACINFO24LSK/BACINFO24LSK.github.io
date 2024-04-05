@@ -381,9 +381,20 @@ legend {
     font-style: italic;
     text-align: center;
     margin: 10px;
-    animation: scrolldown 6.5s ease-in-out infinite;
+    animation: scrolldown 5s ease-in-out infinite; /* Changed animation duration to 5 seconds */
     opacity: 1;
 }
+
+@keyframes scrolldown {
+    0% {
+        transform: translateY(-50%);
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
 
 @keyframes hidden {
     0% {
