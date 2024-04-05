@@ -381,8 +381,8 @@ legend {
     font-style: italic;
     text-align: center;
     margin: 10px;
-    animation: scrolldown 5s ease-in-out infinite; /* Changed animation duration to 5 seconds */
-    opacity: 1;
+    animation: scrolldown 3s ease-in-out infinite; /* Changed animation duration to 5 seconds */
+    opacity: 0;
 }
 
 @keyframes scrolldown {
