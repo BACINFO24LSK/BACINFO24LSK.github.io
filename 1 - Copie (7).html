@@ -16,7 +16,6 @@
         justify-content: stretch;
         align-items: center;
         background-color: #3f0358; /* Set background color */
-        
     }
     video {
         position: relative; /* Fixed position */
@@ -25,7 +24,6 @@
         scrollbar-width: 10px ;
         scrollbar-color: #3f0358 black;
     }
-
 </style>
 </head>
 <body>
@@ -38,7 +36,54 @@
     <!-- Your other content goes here -->
     <div style="position: relative; z-index: 1;">
         <!-- Your page content -->
-        
     </div>
+
+    <div id="youtube-audio"></div>
+
+    <script>
+        // Load the YouTube IFrame Player API asynchronously
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Variables to hold player and player state
+        var player;
+        var done = false;
+
+        // Function called when API is ready
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-audio', {
+                height: '0',
+                width: '0',
+                videoId: '-nciS-Wp00s', // Replace with the actual YouTube video ID
+                playerVars: {
+                    start: 0, // Start playing from the beginning
+                    loop: 1, // Loop the video
+                    autoplay: 1, // Autoplay the video
+                    controls: 0, // Hide video controls
+                    showinfo: 0, // Hide video title and player actions
+                    rel: 0, // Hide related videos at the end
+                    iv_load_policy: 3, // Turn off video annotations
+                    modestbranding: 1 // Use a smaller YouTube logo
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        // Function called when player is ready
+        function onPlayerReady(event) {
+            // Play the audio when the video starts playing
+            document.querySelector('video').addEventListener('play', function() {
+                player.playVideo();
+            });
+            // Pause the audio when the video pauses
+            document.querySelector('video').addEventListener('pause', function() {
+                player.pauseVideo();
+            });
+        }
+    </script>
 </body>
 </html>
