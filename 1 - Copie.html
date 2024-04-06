@@ -44,19 +44,31 @@
     <div id="youtube-audio"></div>
 
     <script>
-        // YouTube Player API
+        // Load the YouTube IFrame Player API asynchronously
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Variables to hold player and player state
         var player;
+        var done = false;
 
         // Function called when API is ready
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('youtube-audio', {
                 height: '0',
                 width: '0',
-                videoId: 'ryzWpALP8ZU', // Replace VIDEO_ID with the actual YouTube video ID
+                videoId: 'ryzWpALP8ZU', // Replace with the actual YouTube video ID
                 playerVars: {
-                    start: 35, // Start playing at 2:53 (2 minutes and 53 seconds)
-                    end: 247, // End at 4:55 (4 minutes and 55 seconds)
-                    loop: 1 // Loop the video
+                    start: 53, // Start playing at 0:53 (53 seconds)
+                    loop: 1, // Loop the video
+                    autoplay: 1, // Autoplay the video
+                    controls: 0, // Hide video controls
+                    showinfo: 0, // Hide video title and player actions
+                    rel: 0, // Hide related videos at the end
+                    iv_load_policy: 3, // Turn off video annotations
+                    modestbranding: 1 // Use a smaller YouTube logo
                 },
                 events: {
                     'onReady': onPlayerReady
@@ -76,8 +88,7 @@
             });
         }
     </script>
-
-    <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
+
 
