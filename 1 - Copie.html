@@ -40,5 +40,44 @@
         <!-- Your page content -->
         
     </div>
+
+    <div id="youtube-audio"></div>
+
+    <script>
+        // YouTube Player API
+        var player;
+
+        // Function called when API is ready
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-audio', {
+                height: '0',
+                width: '0',
+                videoId: 'ryzWpALP8ZU', // Replace VIDEO_ID with the actual YouTube video ID
+                playerVars: {
+                    start: 35, // Start playing at 2:53 (2 minutes and 53 seconds)
+                    end: 247, // End at 4:55 (4 minutes and 55 seconds)
+                    loop: 1 // Loop the video
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        // Function called when player is ready
+        function onPlayerReady(event) {
+            // Play the audio when the video starts playing
+            document.querySelector('video').addEventListener('play', function() {
+                player.playVideo();
+            });
+            // Pause the audio when the video pauses
+            document.querySelector('video').addEventListener('pause', function() {
+                player.pauseVideo();
+            });
+        }
+    </script>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
+
